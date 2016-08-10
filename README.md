@@ -71,7 +71,7 @@ repositories {
 Step 2. Add the dependency.
 ```
 dependencies {
-    compile 'com.github.yaroslav-v:android-maps-zone:v1.0.0'
+    compile 'com.github.yaroslav-v:android-maps-zone:v1.0.1'
 }
 ```
 
