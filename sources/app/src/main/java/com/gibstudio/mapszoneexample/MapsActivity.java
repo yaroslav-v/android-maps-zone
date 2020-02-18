@@ -1,13 +1,10 @@
 package com.gibstudio.mapszoneexample;
 
 import android.graphics.Color;
-import android.graphics.Point;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.util.DisplayMetrics;
-import android.view.View;
 
-import com.gibstudio.mapszone.models.Draggable;
 import com.gibstudio.mapszone.models.DraggableCircle;
 import com.gibstudio.mapszone.models.DraggableShape;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -16,7 +13,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;

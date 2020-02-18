@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.gibstudio.mapszoneexample"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 101
         versionName "1.0.1"
@@ -22,7 +22,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.google.android.gms:play-services-maps:12.0.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation project(":mapszone")
 }
