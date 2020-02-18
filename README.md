@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/github/release/yaroslav-v/android-maps-zone.svg?label=JitPack)](https://jitpack.io/#yaroslav-v/android-maps-zone) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
+[![Release](https://img.shields.io/github/release/yaroslav-v/android-maps-zone.svg?label=JitPack)](https://jitpack.io/#yaroslav-v/android-maps-zone) [![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=15)
 
 # Editable geo zones for Google Maps Android
 
@@ -71,7 +71,7 @@ repositories {
 Step 2. Add the dependency.
 ```
 dependencies {
-    compile 'com.github.yaroslav-v:android-maps-zone:1.0.3'
+    compile 'com.github.yaroslav-v:android-maps-zone:1.0.4'
 }
 ```
 

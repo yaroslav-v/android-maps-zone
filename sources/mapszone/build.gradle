@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 25
-        versionCode 103
-        versionName "1.0.3"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 104
+        versionName "1.0.4"
     }
     buildTypes {
         release {
@@ -21,6 +21,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    implementation 'com.google.android.gms:play-services-maps:12.0.1'
-    api 'com.google.maps.android:android-maps-utils:0.5' // previous 0.4.4
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    api 'com.google.maps.android:android-maps-utils:0.6.2'
 }
