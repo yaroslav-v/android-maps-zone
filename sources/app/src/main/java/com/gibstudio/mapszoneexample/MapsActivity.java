@@ -71,6 +71,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 colors[1], // int fill Color
                 10); // float stroke width
         draggable.setTitle("Marker in Moskow");
+        draggable.setZIndex(1.0f);
         mDraggableObjects.add(draggable);
     }
 
@@ -87,6 +88,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 colors[0], // int stroke Color
                 colors[1], // int fill Color
                 10); // float stroke width
+        draggable.setZIndex(0.0f);
         mDraggableObjects.add(draggable);
     }
 

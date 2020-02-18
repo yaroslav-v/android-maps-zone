@@ -1,7 +1,10 @@
 package com.gibstudio.mapszone.models;
 
+import android.os.RemoteException;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.RuntimeRemoteException;
 
 public interface Draggable {
 
@@ -14,6 +17,10 @@ public interface Draggable {
     void onEditEnd();
 
     void onEditCancel();
+
+    void setZIndex(float index);
+
+    float getZIndex();
 
     void setVisible(boolean visible);
 

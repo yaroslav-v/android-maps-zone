@@ -1,7 +1,5 @@
 package com.gibstudio.mapszone.models;
 
-import android.graphics.Color;
-
 import com.gibstudio.mapszone.GeoUtils;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -70,29 +68,12 @@ public class DraggablePolygon implements DraggableShape {
                 .fillColor(fillColor));
     }
 
-    public DraggablePolygon(GoogleMap map, List<LatLng> radiusPoints, int strokeColor,
-                            int fillColor, float strokeWidth, BitmapDescriptor centerResource,
-                            BitmapDescriptor radiusResource) {
-        this(map, radiusPoints, strokeColor, fillColor, strokeWidth, centerResource, centerResource,
-                radiusResource);
-    }
-
-    public DraggablePolygon(GoogleMap map, List<LatLng> radiusPoints, int strokeColor, int fillColor,
-                            float strokeWidth, int centerResourceId, int radiusResourceId) {
-        this(map, radiusPoints, strokeColor, fillColor, strokeWidth,
-                BitmapDescriptorFactory.fromResource(centerResourceId),
-                BitmapDescriptorFactory.fromResource(radiusResourceId));
-    }
-
     public DraggablePolygon(GoogleMap map, List<LatLng> radiusPoints, int strokeColor, int fillColor,
                             float strokeWidth) {
         this(map, radiusPoints, strokeColor, fillColor, strokeWidth,
                 BitmapDescriptorFactory.defaultMarker(),
+                BitmapDescriptorFactory.defaultMarker(),
                 BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-    }
-
-    public DraggablePolygon(GoogleMap map, List<LatLng> radiusPoints) {
-        this(map, radiusPoints, Color.BLUE, Color.TRANSPARENT, 1.f);
     }
 
     @Override
@@ -181,6 +162,20 @@ public class DraggablePolygon implements DraggableShape {
         }
 
         mPolygon.setPoints(mRadiusPoints);
+    }
+
+    @Override
+    public void setZIndex(float index) {
+        mCenterMarker.setZIndex(index);
+        for (Marker radiusMarker : mRadiusMarkers) {
+            radiusMarker.setZIndex(index);
+        }
+        mPolygon.setZIndex(index);
+    }
+
+    @Override
+    public float getZIndex() {
+        return mPolygon.getZIndex();
     }
 
     @Override

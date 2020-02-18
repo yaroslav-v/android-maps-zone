@@ -35,16 +35,9 @@ public class DraggablePoint implements Draggable {
                 .draggable(draggable));
     }
 
-    public DraggablePoint(GoogleMap map, LatLng centerPoint, BitmapDescriptor centerResource) {
-        this(map, centerPoint, centerResource, centerResource);
-    }
-
-    public DraggablePoint(GoogleMap map, LatLng centerPoint, int centerResourceId) {
-        this(map, centerPoint, BitmapDescriptorFactory.fromResource(centerResourceId));
-    }
-
     public DraggablePoint(GoogleMap map, LatLng centerPoint) {
-        this(map, centerPoint, BitmapDescriptorFactory.defaultMarker());
+        this(map, centerPoint, BitmapDescriptorFactory.defaultMarker(),
+                BitmapDescriptorFactory.defaultMarker());
     }
 
     @Override
@@ -80,6 +73,16 @@ public class DraggablePoint implements Draggable {
         mCenterMarker.setIcon(mCenterResource);
 
         mCenterMarker.setPosition(mCenterPoint);
+    }
+
+    @Override
+    public void setZIndex(float index) {
+        mCenterMarker.setZIndex(index);
+    }
+
+    @Override
+    public float getZIndex() {
+        return mCenterMarker.getZIndex();
     }
 
     @Override

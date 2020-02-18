@@ -1,7 +1,5 @@
 package com.gibstudio.mapszone.models;
 
-import android.graphics.Color;
-
 import com.gibstudio.mapszone.GeoUtils;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -62,22 +60,9 @@ public class DraggableCircle implements DraggableShape {
     }
 
     public DraggableCircle(GoogleMap map, LatLng centerPoint, double radius, int strokeColor,
-                           int fillColor, float strokeWidth, BitmapDescriptor centerResource,
-                           BitmapDescriptor radiusResource) {
-        this(map, centerPoint, radius, strokeColor, fillColor, strokeWidth, centerResource,
-                centerResource, radiusResource);
-    }
-
-    public DraggableCircle(GoogleMap map, LatLng centerPoint, double radius, int strokeColor,
-                           int fillColor, float strokeWidth, int centerResourceId, int radiusResourceId) {
-        this(map, centerPoint, radius, strokeColor, fillColor, strokeWidth,
-                BitmapDescriptorFactory.fromResource(centerResourceId),
-                BitmapDescriptorFactory.fromResource(radiusResourceId));
-    }
-
-    public DraggableCircle(GoogleMap map, LatLng centerPoint, double radius, int strokeColor,
                            int fillColor, float strokeWidth) {
         this(map, centerPoint, radius, strokeColor, fillColor, strokeWidth,
+                BitmapDescriptorFactory.defaultMarker(),
                 BitmapDescriptorFactory.defaultMarker(),
                 BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
     }
@@ -90,31 +75,11 @@ public class DraggableCircle implements DraggableShape {
     }
 
     public DraggableCircle(GoogleMap map, LatLng centerPoint, LatLng radiusPoint, int strokeColor,
-                           int fillColor, float strokeWidth, BitmapDescriptor centerResource,
-                           BitmapDescriptor radiusResource) {
-        this(map, centerPoint, radiusPoint, strokeColor, fillColor, strokeWidth, centerResource,
-                centerResource, radiusResource);
-    }
-
-    public DraggableCircle(GoogleMap map, LatLng centerPoint, LatLng radiusPoint, int strokeColor,
-                           int fillColor, float strokeWidth, int centerResourceId, int radiusResourceId) {
-        this(map, centerPoint, GeoUtils.toRadiusMeters(centerPoint, radiusPoint), strokeColor,
-                fillColor, strokeWidth, centerResourceId, radiusResourceId);
-    }
-
-    public DraggableCircle(GoogleMap map, LatLng centerPoint, LatLng radiusPoint, int strokeColor,
                            int fillColor, float strokeWidth) {
         this(map, centerPoint, radiusPoint, strokeColor, fillColor, strokeWidth,
                 BitmapDescriptorFactory.defaultMarker(),
+                BitmapDescriptorFactory.defaultMarker(),
                 BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-    }
-
-    public DraggableCircle(GoogleMap map, LatLng centerPoint, double radius) {
-        this(map, centerPoint, radius, Color.BLUE, Color.TRANSPARENT, 1.f);
-    }
-
-    public DraggableCircle(GoogleMap map, LatLng centerPoint, LatLng radiusLatLng) {
-        this(map, centerPoint, radiusLatLng, Color.BLUE, Color.TRANSPARENT, 1.f);
     }
 
     @Override
@@ -169,6 +134,18 @@ public class DraggableCircle implements DraggableShape {
 
         mCircle.setCenter(mCenterPoint);
         mCircle.setRadius(mRadius);
+    }
+
+    @Override
+    public void setZIndex(float index) {
+        mCenterMarker.setZIndex(index);
+        mRadiusMarker.setZIndex(index);
+        mCircle.setZIndex(index);
+    }
+
+    @Override
+    public float getZIndex() {
+        return mCircle.getZIndex();
     }
 
     @Override
